@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 
+import "./responsive.css";
 
 import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
@@ -11,6 +12,7 @@ import Documents from "./pages/Documents";
 import Analytics from "./pages/Analytics";
 
 import { ROLES, notifications } from "./data/dummyData";
+
 
 
 const NAV = [
@@ -32,6 +34,8 @@ export default function App() {
   const [notifOpen, setNotifOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loginRole, setLoginRole] = useState("Manager");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
 
   const renderModule = useMemo(() => {
     if (active === "dashboard") return <Dashboard />;
@@ -183,8 +187,8 @@ export default function App() {
         color: "#d1d9e6",
       }}
     >
-      {/* SIDEBAR */}
-      <div
+      {/* SIDEBAR (desktop) */}
+      <div className="desktop-only"
         style={{
           width: 220,
           background: "#141b2a",
@@ -289,8 +293,131 @@ export default function App() {
         </div>
       </div>
 
+      {/* SIDEBAR (mobile drawer) */}
+      {sidebarOpen && (
+        <>
+          <div className="bb-backdrop" onClick={() => setSidebarOpen(false)} />
+          <div className="bb-drawer">
+            <div style={{ padding: "24px 20px 20px", borderBottom: "1px solid #1e2a3a" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <div
+                  style={{
+                    background: "#3b82f6",
+                    width: 32,
+                    height: 32,
+                    borderRadius: 8,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 16,
+                  }}
+                >
+                  ⬛
+                </div>
+                <div>
+                  <div style={{ color: "#f1f5f9", fontWeight: 900, fontSize: 16, letterSpacing: -0.3 }}>FactoryIQ</div>
+                  <div style={{ color: "#4a5568", fontSize: 10, letterSpacing: 0.5 }}>MANUFACTURING PORTAL</div>
+                </div>
+              </div>
+              <button
+                onClick={() => setSidebarOpen(false)}
+                style={{
+                  marginTop: 16,
+                  background: "#2a3347",
+                  border: "1px solid #1e2a3a",
+                  color: "#94a3b8",
+                  padding: "8px 12px",
+                  borderRadius: 8,
+                  width: "100%",
+                  cursor: "pointer",
+                  fontSize: 13,
+                  fontWeight: 700,
+                }}
+              >
+                Close
+              </button>
+            </div>
+
+            <nav style={{ flex: 1, padding: "12px 10px", overflowY: "auto" }}>
+              {visibleNav.map((n) => (
+                <button
+                  key={n.id}
+                  onClick={() => {
+                    setActive(n.id);
+                    setSidebarOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                    width: "100%",
+                    background: active === n.id ? "#3b82f620" : "transparent",
+                    border: `1px solid ${active === n.id ? "#3b82f640" : "transparent"}`,
+                    borderRadius: 8,
+                    padding: "9px 12px",
+                    cursor: "pointer",
+                    color: active === n.id ? "#3b82f6" : "#7c8ba1",
+                    fontSize: 13,
+                    fontWeight: active === n.id ? 700 : 500,
+                    marginBottom: 2,
+                    textAlign: "left",
+                    transition: "all 0.15s",
+                  }}
+                >
+                  <span style={{ fontSize: 16 }}>{n.icon}</span>
+                  {n.label}
+                </button>
+              ))}
+            </nav>
+
+            <div style={{ padding: "16px 12px", borderTop: "1px solid #1e2a3a" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  padding: "8px 10px",
+                  background: "#1e2433",
+                  borderRadius: 10,
+                }}
+              >
+                <div
+                  style={{
+                    width: 28,
+                    height: 28,
+                    background: "#3b82f6",
+                    borderRadius: 6,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#fff",
+                    fontSize: 12,
+                    fontWeight: 800,
+                  }}
+                >
+                  {role[0]}
+                </div>
+                <div>
+                  <div style={{ color: "#f1f5f9", fontSize: 12, fontWeight: 700 }}>{role}</div>
+                  <button
+                    onClick={() => {
+                      setLoggedIn(false);
+                      setSidebarOpen(false);
+                    }}
+                    style={{ background: "none", border: "none", color: "#4a5568", fontSize: 11, cursor: "pointer", padding: 0 }}
+                  >
+                    Sign out
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
       {/* MAIN */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
+
         {/* TOP BAR */}
         <div
           style={{
@@ -305,6 +432,27 @@ export default function App() {
             zIndex: 10,
           }}
         >
+          <button
+            className="mobile-only"
+            onClick={() => setSidebarOpen(true)}
+            aria-label="Open navigation"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 42,
+              height: 38,
+              borderRadius: 8,
+              background: "#1e2433",
+              border: "1px solid #2a3347",
+              color: "#94a3b8",
+              cursor: "pointer",
+              fontSize: 18,
+            }}
+          >
+            ☰
+          </button>
+
           <div
             style={{
               flex: 1,
@@ -328,6 +476,7 @@ export default function App() {
           </div>
 
           <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
+
             <div style={{ position: "relative" }}>
               <button
                 onClick={() => setNotifOpen(!notifOpen)}
@@ -413,9 +562,18 @@ export default function App() {
         </div>
 
         {/* CONTENT */}
-        <div style={{ flex: 1, padding: "28px 32px", overflowY: "auto" }} onClick={() => notifOpen && setNotifOpen(false)}>
-      {renderModule}
-      </div>
+        <div
+          style={{
+            flex: 1,
+            padding: "28px 32px",
+            overflowY: "auto",
+          }}
+          onClick={() => notifOpen && setNotifOpen(false)}
+          className="contentWrap"
+        >
+          {renderModule}
+        </div>
+
 
 
 
