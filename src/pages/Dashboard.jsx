@@ -32,7 +32,7 @@ export default function Dashboard() {
         sub="Real-time overview of portfolio health and operational KPIs"
       />
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 24 }}>
+      <div className="kpi-grid">
         <KpiCard label="Total Projects" value={projects.length} sub="Across all sites" color="#3b82f6" icon="📁" />
         <KpiCard label="Active Projects" value={projects.filter((p) => p.status !== "Delayed").length} sub="+2 this quarter" color="#10b981" icon="✅" />
         <KpiCard label="Delayed" value={projects.filter((p) => p.status === "Delayed").length} sub="Requires attention" color="#ef4444" icon="⚠️" />
@@ -41,7 +41,7 @@ export default function Dashboard() {
         <KpiCard label="Open RMAs" value={rmas.filter((r) => r.status !== "Complete").length} sub="2 high priority" color="#06b6d4" icon="🔧" />
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+      <div className="dashboard-grid" style={{ marginBottom: 16 }}>
         <ChartCard title="Project Status Distribution">
           <ResponsiveContainer width="100%" height={220}>
             <PieChart>
@@ -128,7 +128,7 @@ export default function Dashboard() {
         </ChartCard>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+      <div className="dashboard-grid">
         <ChartCard title="Quality Defect Trend">
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={auditData}>

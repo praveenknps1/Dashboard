@@ -1,4 +1,16 @@
-/* Shared responsive helpers for the dashboard shell */
+/* Shared responsive helpers */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 .mobile-only {
   display: none;
@@ -18,13 +30,7 @@
   }
 }
 
-/* Prevent iOS/VH quirks: let the shell manage heights, content should scroll */
-html,
-body {
-  height: 100%;
-}
-
-/* Drawer/backdrop */
+/* Drawer */
 .bb-backdrop {
   position: fixed;
   inset: 0;
@@ -46,13 +52,43 @@ body {
 }
 
 .contentWrap {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+/* Dashboard grids */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.kpi-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.kpi-grid > * {
+  flex: 1 1 220px;
   min-width: 0;
 }
 
-@media (max-width: 768px) {
-  .contentWrap {
-    padding: 16px 14px !important;
-  }
+/* Recharts fix */
+.recharts-responsive-container,
+.recharts-wrapper {
+  max-width: 100% !important;
 }
 
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contentWrap {
+    padding: 12px !important;
+  }
+}
 

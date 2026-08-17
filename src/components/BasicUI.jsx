@@ -56,7 +56,18 @@ export const Td = ({ children, mono }) => (
 );
 
 export const ChartCard = ({ title, children, style }) => (
-  <div style={{ background: "#1e2433", border: "1px solid #2a3347", borderRadius: 12, padding: "18px 20px", ...style }}>
+  <div
+    style={{
+      background: "#1e2433",
+      border: "1px solid #2a3347",
+      borderRadius: 12,
+      padding: "18px 20px",
+      width: "100%",
+      minWidth: 0,
+      overflow: "hidden",
+      ...style,
+    }}
+  >
     <div
       style={{
         color: "#94a3b8",
@@ -72,4 +83,5 @@ export const ChartCard = ({ title, children, style }) => (
     {children}
   </div>
 );
+
 

@@ -423,10 +423,11 @@ export default function App() {
           style={{
             background: "#141b2a",
             borderBottom: "1px solid #1e2a3a",
-            padding: "12px 28px",
+            padding: "12px",
             display: "flex",
             alignItems: "center",
             gap: 16,
+            flexWrap: "wrap",
             position: "sticky",
             top: 0,
             zIndex: 10,
@@ -463,7 +464,9 @@ export default function App() {
               borderRadius: 8,
               padding: "7px 14px",
               gap: 8,
+              width: "100%",
               maxWidth: 420,
+              minWidth: 0,
             }}
           >
             <span style={{ color: "#4a5568" }}>🔍</span>
@@ -512,7 +515,8 @@ export default function App() {
                     position: "absolute",
                     right: 0,
                     top: "calc(100% + 8px)",
-                    width: 320,
+                    width: "90vw",
+                    maxWidth: 320,
                     background: "#1e2433",
                     border: "1px solid #2a3347",
                     borderRadius: 12,
