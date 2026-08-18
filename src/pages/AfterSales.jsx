@@ -33,7 +33,7 @@ export default function AfterSales() {
                 {r.warranty}
               </span>
             </td>,
-            <td key="st" style={{ padding: "11px 14px" }}>
+            <td key="st" style={{ padding: "11px 13px" }}>
               <StatusBadge status={r.status} />
             </td>,
             <Td key="tech">{r.technician}</Td>,

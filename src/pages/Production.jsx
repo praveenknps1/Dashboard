@@ -54,7 +54,7 @@ export default function Production() {
         <div
           style={{
             color: "#94a3b8",
-            fontSize: 12,
+            fontSize: 13,
             fontWeight: 700,
             letterSpacing: 0.8,
             textTransform: "uppercase",
