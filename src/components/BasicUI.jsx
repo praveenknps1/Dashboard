@@ -1,8 +1,11 @@
 export const SectionHeader = ({ title, sub }) => (
   <div style={{ marginBottom: 20 }}>
-
-    <h2 style={{ color: "#f1f5f9", fontSize: 20, fontWeight: 800, margin: 0 }}>{title}</h2>
-    {sub && <p style={{ color: "#7c8ba1", fontSize: 13, margin: "4px 0 0" }}>{sub}</p>}
+    <h2 style={{ color: "#f1f5f9", fontSize: 20, fontWeight: 800, margin: 0 }}>
+      {title}
+    </h2>
+    {sub && (
+      <p style={{ color: "#7c8ba1", fontSize: 13, margin: "4px 0 0" }}>{sub}</p>
+    )}
   </div>
 );
 
@@ -15,7 +18,7 @@ export const Table = ({ cols, rows, rowKey, renderRow }) => (
             <th
               key={c}
               style={{
-                padding: "10px 14px",
+                padding: "10px 13px",
                 textAlign: "left",
                 color: "#7c8ba1",
                 fontWeight: 700,
@@ -33,7 +36,10 @@ export const Table = ({ cols, rows, rowKey, renderRow }) => (
       </thead>
       <tbody>
         {rows.map((r, i) => (
-          <tr key={rowKey ? r[rowKey] : i} style={{ borderBottom: "1px solid #1a2133" }}>
+          <tr
+            key={rowKey ? r[rowKey] : i}
+            style={{ borderBottom: "1px solid #1a2133" }}
+          >
             {renderRow(r)}
           </tr>
         ))}
@@ -83,5 +89,3 @@ export const ChartCard = ({ title, children, style }) => (
     {children}
   </div>
 );
-
-
