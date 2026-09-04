@@ -9,7 +9,7 @@ export const statusColor = (s) => {
     Complete: "#10b981",
     Pending: "#94a3b8",
     "On Time": "#10b981",
-    "At Risk": "#f59e0b",
+    "At Risk": "#ef9e12",
     Repair: "#3b82f6",
     Assessment: "#8b5cf6",
     Draft: "#94a3b8",

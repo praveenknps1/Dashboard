@@ -3,7 +3,7 @@
 export const KpiCard = ({ label, value, sub, color = "#3b82f6", icon }) => (
   <div
     style={{
-      background: "#1e2433",
+      background: "#252b3b",
       border: "1px solid #2a3347",
       borderRadius: 12,
       padding: "20px 22px",
@@ -15,7 +15,7 @@ export const KpiCard = ({ label, value, sub, color = "#3b82f6", icon }) => (
       <div>
         <div
           style={{
-            color: "#7c8ba1",
+            color: "#728198",
             fontSize: 11,
             fontWeight: 600,
             letterSpacing: 1,

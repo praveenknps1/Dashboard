@@ -5,7 +5,7 @@ export default function Topbar({ role, search, setSearch, notifOpen, setNotifOpe
   return (
     <div
       style={{
-        background: "#141b2a",
+        background: "#111828",
         borderBottom: "1px solid #1e2a3a",
         padding: "12px 28px",
         display: "flex",
