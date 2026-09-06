@@ -35,7 +35,7 @@ export default function StatusPieChart({ projects }) {
               background: "#1e2433",
               border: "1px solid #2a3347",
               borderRadius: 8,
-              color: "#f1f5f9",
+              color: "#f0f0f1",
             }}
           />
         </PieChart>

@@ -5,8 +5,8 @@ export default function Topbar({ role, search, setSearch, notifOpen, setNotifOpe
   return (
     <div
       style={{
-        background: "#111828",
-        borderBottom: "1px solid #1e2a3a",
+        background: "#11192b",
+        borderBottom: "1px solid #1f2e42",
         padding: "12px 28px",
         display: "flex",
         alignItems: "center",
@@ -37,7 +37,7 @@ export default function Topbar({ role, search, setSearch, notifOpen, setNotifOpe
           style={{
             background: "none",
             border: "none",
-            color: "#d1d9e6",
+            color: "#d8e2f3",
             outline: "none",
             flex: 1,
             fontSize: 13,
@@ -68,7 +68,7 @@ export default function Topbar({ role, search, setSearch, notifOpen, setNotifOpe
                 right: 4,
                 width: 8,
                 height: 8,
-                background: "#ef4444",
+                background: "#e34040",
                 borderRadius: "50%",
                 border: "2px solid #141b2a",
               }}
