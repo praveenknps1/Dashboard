@@ -16,7 +16,7 @@ export default function Documents() {
 
       <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 24 }}>
         <KpiCard label="Total Documents" value={documents.length} color="#3b82f6" icon="📄" />
-        <KpiCard label="Approved" value={documents.filter((d) => d.status === "Approved").length} color="#10b981" icon="✅" />
+        <KpiCard label="Approved" value={documents.filter((d) => d.status === "Approved").length} color="#1bbd87" icon="✅" />
         <KpiCard label="In Review" value={documents.filter((d) => d.status === "In Review").length} color="#f59e0b" icon="🔍" />
         <KpiCard label="Drafts" value={documents.filter((d) => d.status === "Draft").length} color="#94a3b8" icon="✏️" />
       </div>

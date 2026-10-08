@@ -156,7 +156,7 @@ export default function Dashboard() {
               <Radar name="Score" dataKey="A" stroke="#865ee3" fill="#8b5cf6" fillOpacity={0.25} />
               <Tooltip
                 contentStyle={{
-                  background: "#1e2433",
+                  background: "#2b354e",
                   border: "1px solid #2a3347",
                   borderRadius: 8,
                   color: "#f1f5f9",
