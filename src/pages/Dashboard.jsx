@@ -153,7 +153,7 @@ export default function Dashboard() {
             <RadarChart data={supplierRadar}>
               <PolarGrid stroke="#2a3347" />
               <PolarAngleAxis dataKey="subject" tick={{ fill: "#7c8ba1", fontSize: 11 }} />
-              <Radar name="Score" dataKey="A" stroke="#8b5cf6" fill="#8b5cf6" fillOpacity={0.25} />
+              <Radar name="Score" dataKey="A" stroke="#865ee3" fill="#8b5cf6" fillOpacity={0.25} />
               <Tooltip
                 contentStyle={{
                   background: "#1e2433",
